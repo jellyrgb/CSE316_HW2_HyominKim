@@ -1,24 +1,25 @@
 import React from 'react';
-import FacilityItem from './FacilityItem.tsx';
+import { facilities, Facility } from '../data/FacilityData';
 
-// TODO: Temp info -> Facility_Data.lis
-const facilities = [
-    { id: "gym", name: "Gym", description: "sports hall", capacity: 4, location: "C1033", availability: "Available to all", image: "/src/images/gym.jpg" },
-    { id: "auditorium", name: "Auditorium", description: "the auditorium theater", capacity: 30, location: "A234", availability: "Available to all", image: "/src/images/auditorium.jpg" },
-    { id: "pool", name: "Swimming Pool", description: "aqautic center", capacity: 4, location: "C1033", availability: "Available to all", image: "/src/images/pool.jpg" },
-    { id: "seminar", name: "Seminar Room", description: "lecture hall", capacity: 4, location: "C1033", availability: "Available to all", image: "/src/images/seminar.jpg" },
-    { id: "conference", name: "Conference Room", description: "meeting space", capacity: 4, location: "C1033", availability: "Only for SUNY Korea", image: "/src/images/conference.jpg" },
-    { id: "library", name: "Library", description: "study and read books", capacity: 4, location: "C1033", availability: "Only for SUNY Korea", image: "/src/images/library.jpg" },
-  ];
+interface FacilityListProps {
+  onSelect: (facilityName: string) => void;
+}
 
-function FacilityList() {
-    return (
-      <div className="facility-list">
-        {facilities.map(facility => (
-          <FacilityItem key={facility.id} facility={facility} />
-        ))}
-      </div>
-    );
-  }
+const FacilityList: React.FC<FacilityListProps> = ({ onSelect }) => {
+  return (
+    <div>
+      {facilities.map((facility: Facility, index: number) => (
+        <div key={index} onClick={() => onSelect(facility.name)}>
+          <h2>{facility.name}</h2>
+          <p>{facility.desc}</p>
+          <p>{facility.days.join(', ')}</p>
+          <p>{facility.participants}</p>
+          <p>{facility.location}</p>
+          <p>{facility.available}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default FacilityList;

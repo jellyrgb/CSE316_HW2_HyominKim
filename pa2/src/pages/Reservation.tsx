@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
-
-// TODO: Temp info -> Facility_Data.lis
-const facilities = [
-  { id: "gym", name: "Gym", capacity: 4, availability: "Available to all" },
-  { id: "auditorium", name: "Auditorium", capacity: 30, availability: "Available to all" },
-  { id: "pool", name: "Swimming Pool", capacity: 4, availability: "Available to all" },
-  { id: "seminar", name: "Seminar Room", capacity: 4, availability: "Available to all" },
-  { id: "conference", name: "Conference Room", capacity: 4, availability: "Only for SUNY Korea" },
-  { id: "library", name: "Library", capacity: 4, availability: "Only for SUNY Korea" },
-];
+import FacilityList from '../components/FacilityList';
+import { facilities } from '../data/FacilityData.ts';
 
 function Reservation() {
   const [facility, setFacility] = useState('gym');
@@ -20,10 +12,10 @@ function Reservation() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    const selectedFacility = facilities.find(f => f.id === facility);
+    const selectedFacility = facilities.find(f => f.name === facility);
     if (!selectedFacility) return;
 
-    const facilityCapacity = selectedFacility.capacity;
+    const facilityCapacity = selectedFacility.participants.split(' - ').map(Number)[1];
     const today = new Date();
     const selectedDate = new Date(date);
 
@@ -38,7 +30,7 @@ function Reservation() {
       return;
     }
 
-    if (selectedFacility.availability === "Only for SUNY Korea" && affiliation === 'no') {
+    if (selectedFacility.available === "Only for SUNY Korea" && affiliation === 'no') {
       alert("Cannot reserve. (Affiliation requirement)");
       return;
     }
@@ -48,89 +40,31 @@ function Reservation() {
     const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
     reservations.push(reservation);
     localStorage.setItem('reservations', JSON.stringify(reservations));
-
-    alert("Reservation successful.");
   };
 
   return (
     <div>
+      <FacilityList onSelect={setFacility} />
       <form onSubmit={handleSubmit}>
-        {/* Select facility */}
-        <div>
-          <label htmlFor="facility">Facility</label>
-          <select id="facility" value={facility} onChange={e => setFacility(e.target.value)}>
-            {facilities.map(f => (
-              <option key={f.id} value={f.id}>
-                {f.name}
-              </option>
-            ))}
+        <label>
+          Date:
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        </label>
+        <label>
+          Number of People:
+          <input type="number" value={people} onChange={(e) => setPeople(Number(e.target.value))} />
+        </label>
+        <label>
+          Affiliation (SUNY Korea):
+          <select value={affiliation} onChange={(e) => setAffiliation(e.target.value)}>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
           </select>
-        </div>
-
-        {/* Select date */}
-        <div>
-          <label htmlFor="date">Reservation Date</label>
-          <input 
-            type="date" 
-            id="date" 
-            value={date} 
-            onChange={e => setDate(e.target.value)} 
-            required 
-          />
-        </div>
-
-        {/* Select number of people */}
-        <div>
-          <label htmlFor="people">Number of People</label>
-          <input 
-            type="number" 
-            id="people" 
-            value={people} 
-            onChange={e => setPeople(Number(e.target.value))} 
-            min="1" 
-            max={facilities.find(f => f.id === facility)?.capacity || 1} 
-            required 
-          />
-        </div>
-
-        {/* Select affiliation */}
-        <div>
-          <label>Affiliation</label>
-          <div>
-            <label>
-              <input 
-                type="radio" 
-                value="yes" 
-                checked={affiliation === 'yes'} 
-                onChange={() => setAffiliation('yes')} 
-              />
-              SUNY Korea
-            </label>
-            <label>
-              <input 
-                type="radio" 
-                value="no" 
-                checked={affiliation === 'no'} 
-                onChange={() => setAffiliation('no')} 
-              />
-              Non-SUNY Korea
-            </label>
-          </div>
-        </div>
-
-        {/* Purpose */}
-        <div>
-          <label htmlFor="purpose">Purpose of Reservation</label>
-          <textarea 
-            id="purpose" 
-            value={purpose} 
-            onChange={e => setPurpose(e.target.value)} 
-            placeholder="Enter the purpose" 
-            required 
-          />
-        </div>
-
-        {/* Submit button */}
+        </label>
+        <label>
+          Purpose:
+          <input type="text" value={purpose} onChange={(e) => setPurpose(e.target.value)} />
+        </label>
         <button type="submit">Reserve</button>
       </form>
     </div>
