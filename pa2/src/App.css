@@ -196,24 +196,33 @@ body {
 }
 
 /* Facility reservation page */
-.affiliation {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.reservation-form-content {
-  padding-left: 100px;
-}
-
-.reservation-margin {
+#facility-selector {
   margin-bottom: 20px;
 }
 
-#submit-button {
-  width: 85px;
-  height: 40px;
+.reservation-item {
+  display: flex;
 }
 
+.reservation-item img {
+  width: 60%;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.reservation-item div {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.submit-button {
+  margin-bottom: 50px;
+}
 
 /* User information page */
 #profile-title {

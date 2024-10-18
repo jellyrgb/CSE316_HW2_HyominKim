@@ -6,7 +6,7 @@ interface FacilityItemProps {
 
 function ReservationItem({ facility }: FacilityItemProps) {
   return (
-    <div className="facility-item">
+    <div className="reservation-item">
       <img src={facility.image} alt={facility.name} />
       <div className="facility-info">
         <h2>{facility.name}</h2>
