@@ -147,27 +147,24 @@ body {
 }
 
 /* Facility list page */
-.facility-container {
-  padding-left: 100px;
-  padding-top: 30px;
+.facility-list {
   display: grid;
-  grid-template-columns: repeat(2, 550px);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .facility-item {
-  display: flex;
   box-sizing: border-box;
-  align-items: center;
-  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 .facility-item img {
-  width: 250px;
+  width: 480px;
   height: auto;
-  border-radius: 30px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  margin-right: 30px;
+  border-radius: 10px;
 }
 
 .facility-info {
@@ -177,6 +174,15 @@ body {
 
 .facility-info p, h2{
   margin: 2px 0;
+  text-align: left;
+}
+
+.facility-info h2 {
+  margin-top: 10px;
+}
+
+.facility-info p {
+  margin-bottom: 10px;
 }
 
 .facility-info div {
@@ -188,11 +194,6 @@ body {
   margin-right: 4px;
   vertical-align: middle;
 }
-
-#facility {
-  margin-top: 35px;
-}
-
 
 /* Facility reservation page */
 .affiliation {

@@ -1,4 +1,3 @@
-// FacilityData.ts
 export interface Facility {
     name: string;
     desc: string;
@@ -17,7 +16,7 @@ export const facilities: Facility[] = [
         participants: "1 - 5",
         location: "A101",
         available: "Available to all",
-        image: "../images/gym.jpg"
+        image: "/src/images/gym.jpg"
     },
     {
         name: "Auditorium",
@@ -26,7 +25,7 @@ export const facilities: Facility[] = [
         participants: "10 - 40",
         location: "A234",
         available: "Available to all",
-        image: "../images/auditorium.jpg"
+        image: "/src/images/auditorium.jpg"
     },
     {
         name: "Swimming Pool",
@@ -35,7 +34,7 @@ export const facilities: Facility[] = [
         participants: "1 - 8",
         location: "B403",
         available: "Available to all",
-        image: "../images/pool.jpg"
+        image: "/src/images/pool.jpg"
     },
     {
         name: "Seminar Room",
@@ -44,7 +43,7 @@ export const facilities: Facility[] = [
         participants: "10 - 30",
         location: "B253",
         available: "Available to all",
-        image: "../images/seminar.jpg"
+        image: "/src/images/seminar.jpg"
     },
     {
         name: "Conference Room",
@@ -53,6 +52,15 @@ export const facilities: Facility[] = [
         participants: "5 - 15",
         location: "C101",
         available: "Available to all",
-        image: "../images/conference.jpg"
+        image: "/src/images/conference.jpg"
+    },
+    {
+        name: "Library",
+        desc: "A quiet place",
+        days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        participants: "1 - 20",
+        location: "A1011",
+        available: "Only for SUNY Korea",
+        image: "/src/images/library.jpg"
     }
 ];

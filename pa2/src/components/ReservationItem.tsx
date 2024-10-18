@@ -4,7 +4,7 @@ interface FacilityItemProps {
   facility: Facility;
 }
 
-function FacilityItem({ facility }: FacilityItemProps) {
+function ReservationItem({ facility }: FacilityItemProps) {
   return (
     <div className="facility-item">
       <img src={facility.image} alt={facility.name} />
@@ -46,4 +46,4 @@ function FacilityItem({ facility }: FacilityItemProps) {
   );
 }
 
-export default FacilityItem;
+export default ReservationItem;
