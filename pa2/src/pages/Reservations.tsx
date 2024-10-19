@@ -1,30 +1,48 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import ReservedItem from "../components/ReservedItem";
 
 function Reservations() {
   const [reservations, setReservations] = useState<any[]>([]);
 
   useEffect(() => {
-    const savedReservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+    const savedReservations = JSON.parse(
+      localStorage.getItem("reservations") || "[]"
+    );
     setReservations(savedReservations);
   }, []);
 
+  const handleDelete = (facilityName: string) => {
+    const updatedReservations = reservations.filter(
+      (reservation) => reservation.facility.name !== facilityName
+    );
+    setReservations(updatedReservations);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+  };
+
+  // TODO: Delete before submitting
+  const clearReservations = () => {
+    localStorage.clear();
+    setReservations([]);
+  };
+
   return (
-    <div>
+    <div className="container mt-4">
       {reservations.length === 0 ? (
-        <p>No reservations found.</p>
+        <h1>No reservations found.</h1>
       ) : (
         <div className="reservation-list">
           {reservations.map((reservation, index) => (
-            <div key={index} className="reservation-item">
-              <h2>{reservation.facility}</h2>
-              <p>Date: {reservation.date}</p>
-              <p>Number of People: {reservation.people}</p>
-              <p>Affiliation: {reservation.affiliation === 'yes' ? 'SUNY Korea' : 'Non-SUNY Korea'}</p>
-              <p>Purpose: {reservation.purpose}</p>
-            </div>
+            <ReservedItem
+              key={index}
+              reservation={reservation}
+              onDelete={() => handleDelete(reservation.facility.name)}
+            />
           ))}
         </div>
       )}
+
+      {/* TODO: Delete before submitting */}
+      <button onClick={clearReservations}>Clear (for debugging)</button>
     </div>
   );
 }

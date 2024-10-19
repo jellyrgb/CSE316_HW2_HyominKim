@@ -55,6 +55,8 @@ body {
   overflow: visible;
   height: 60px;
   padding: 0;
+  min-width: 1000px;
+  max-width: 100%;
 }
 
 .navbar-link {
@@ -137,6 +139,7 @@ body {
   padding-left: 120px;
 }
 
+
 /* Home page */
 .home-page {
   text-align: left;
@@ -146,10 +149,15 @@ body {
   margin-bottom: 10px;
 }
 
+
 /* Facility list page */
 .facility-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+#facility {
+  margin-bottom: 20px;
 }
 
 .facility-item {
@@ -162,7 +170,7 @@ body {
 }
 
 .facility-item img {
-  width: 480px;
+  width: 430px;
   height: auto;
   border-radius: 10px;
 }
@@ -195,7 +203,8 @@ body {
   vertical-align: middle;
 }
 
-/* Facility reservation page */
+
+/* Reservation Form page */
 #facility-selector {
   margin-bottom: 20px;
 }
@@ -224,14 +233,11 @@ body {
   margin-bottom: 50px;
 }
 
-/* User information page */
-#profile-title {
-  margin-top: 5px;
-}
 
+/* User information page */
 #profile-pic {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 }
 
 #profile-page {
@@ -242,37 +248,21 @@ body {
   text-align: center;
 }
 
-.button-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .profile-button {
-  height: 30px;
-  margin-left: 10px;
+  height: 35px;
+  margin-top: 10px;
 }
 
 .profile-padding {
-  margin-bottom: 20px;
-}
-
-button {
-  background-color: transparent;
-  border-radius: 4px;
-}
-
-.profile-button {
-  height: 35px;
-}
-
-.profile-button.clicked {
-  background-color: #585858;
-  color: white;
+  margin-bottom: 15px;
 }
 
 .profile-placeholder {
   margin: 0;
+}
+
+#file-input {
+  display: block;
 }
 
 
@@ -369,14 +359,15 @@ button {
   .hamburger-menu {
       display: block;
       background: none;
+      color: white;
       border: none;
       cursor: pointer;
-      margin-right: 70px;
+      margin-right: 5px;
   }
 
-  .hamburger-menu svg {
-      width: 30px;
-      height: 30px;
+  .navbar-center.show {
+    display: flex;
+    flex-direction: column;
   }
 
   #navbar-profile {
@@ -399,17 +390,6 @@ button {
   .navbar-link {
       margin-left: 20px;
       width: 90%;
-  }
-
-  .navbar-active .navbar-center, .navbar-active .navbar-right {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: #f1eeff;
-      z-index: 10;
   }
 
   .navbar-active + main {
