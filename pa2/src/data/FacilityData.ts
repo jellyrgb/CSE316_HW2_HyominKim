@@ -50,8 +50,8 @@ export const facilities: Facility[] = [
         desc: "A place for small but important meetings",
         days: ["Mon", "Tue", "Wed", "Thu", "Fri"],
         participants: "5 - 15",
-        location: "C101",
-        available: "Available to all",
+        location: "C1033",
+        available: "Only for SUNY Korea",
         image: "/src/images/conference.jpg"
     },
     {

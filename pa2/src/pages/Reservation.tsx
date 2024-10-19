@@ -3,7 +3,7 @@ import ReservationForm from '../components/ReservationForm.tsx';
 function Reservation() {
   return (
     <div>
-      <ReservationForm onSelectFacility={(facility) => {}} />
+      <ReservationForm onSelectFacility={() => {}} />
     </div>
   );
 }
