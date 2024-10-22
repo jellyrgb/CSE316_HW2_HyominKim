@@ -1,7 +1,9 @@
+/* Hyomin Kim
+hyomin.kim@stonybrook.edu */
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .logo {
@@ -230,6 +232,10 @@ body {
 
 .reservation-item div {
   margin-bottom: 10px;
+}
+
+.facility-days {
+    text-align: left;
 }
 
 .form-group {

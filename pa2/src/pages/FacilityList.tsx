@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import { facilities } from "../data/FacilityData";
 import FacilityItem from "../components/FacilityItem";
 

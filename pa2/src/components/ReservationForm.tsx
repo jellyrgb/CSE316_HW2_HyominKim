@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import React, { useState, useEffect } from "react";
 import { facilities, Facility } from "../data/FacilityData";
 import ReservationItem from "../components/ReservationItem";

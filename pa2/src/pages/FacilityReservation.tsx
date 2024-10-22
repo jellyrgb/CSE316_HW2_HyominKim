@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import ReservationForm from "../components/ReservationForm.tsx";
 
 function Reservation() {

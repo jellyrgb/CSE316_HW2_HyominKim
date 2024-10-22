@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +15,7 @@ function Navbar() {
     <nav className="navbar">
       {/* Home button */}
       <div className="navbar-left">
-        <Link to="/">
+        <Link to="/home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="28px"
@@ -45,10 +48,10 @@ function Navbar() {
 
       {/* Navbar links */}
       <div className={`navbar-center ${isMenuOpen ? "show" : ""}`}>
-        <Link to="/facility" className="navbar-link">
+        <Link to="/facilityList" className="navbar-link">
           Facility List
         </Link>
-        <Link to="/reservation" className="navbar-link">
+        <Link to="/facilityReservation" className="navbar-link">
           Reservation
         </Link>
 
@@ -56,7 +59,7 @@ function Navbar() {
           <button className="dropbutton">User ▼</button>
           <div className="dropdown-content">
             <Link to="/profile">My Information</Link>
-            <Link to="/reservations">My Reservation</Link>
+            <Link to="/reservationList">My Reservation</Link>
           </div>
         </div>
       </div>

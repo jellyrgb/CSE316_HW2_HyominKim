@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import { useState } from "react";
 
 function Profile() {

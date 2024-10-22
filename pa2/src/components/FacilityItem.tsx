@@ -1,3 +1,6 @@
+// Hyomin Kim
+// hyomin.kim@stonybrook.edu
+
 import { Facility } from "../data/FacilityData.ts";
 
 interface FacilityItemProps {
