@@ -19,12 +19,6 @@ function Reservations() {
     localStorage.setItem("reservations", JSON.stringify(updatedReservations));
   };
 
-  // TODO: Delete before submitting
-  const clearReservations = () => {
-    localStorage.clear();
-    setReservations([]);
-  };
-
   return (
     <div className="container mt-4">
       {reservations.length === 0 ? (
@@ -40,9 +34,6 @@ function Reservations() {
           ))}
         </div>
       )}
-
-      {/* TODO: Delete before submitting */}
-      <button onClick={clearReservations}>Clear (for debugging)</button>
     </div>
   );
 }

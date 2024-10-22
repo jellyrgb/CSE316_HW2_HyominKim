@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { facilities, Facility } from '../data/FacilityData';
-import ReservationItem from '../components/ReservationItem';
+import React, { useState, useEffect } from "react";
+import { facilities, Facility } from "../data/FacilityData";
+import ReservationItem from "../components/ReservationItem";
 
 interface ReservationFormProps {
   onSelectFacility: (facility: Facility | null) => void;
@@ -42,6 +42,26 @@ function ReservationForm({ onSelectFacility }: ReservationFormProps) {
       return;
     }
 
+    // Use the formula to get the day of the week
+    const day = selectedDate.getDate();
+    let month = selectedDate.getMonth() + 1;
+    let year = selectedDate.getFullYear();
+    const century = year % 100;
+    const yearOfCentury = Math.floor(year / 100);
+
+    if (month === 1 || month === 2) {
+      year -= 1;
+      month += 12;
+    }
+
+    const dayOfWeek = (day + (13 * (month + 1) / 5) + yearOfCentury + (yearOfCentury / 4) + (century / 4) + 5 * century) % 7;
+    const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+    if (!facility.days.includes(days[dayOfWeek])) {
+      alert("Cannot reserve. (Day of the week)");
+      return;
+    }
+
     const reservation = {
       facility,
       date,
@@ -51,6 +71,25 @@ function ReservationForm({ onSelectFacility }: ReservationFormProps) {
     };
 
     const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+
+    const sameFacility = reservations.some((reservation: any) => 
+      reservation.facility.name === facility.name
+    );
+
+    const sameDate = reservations.some((reservation: any) =>
+      reservation.date === date
+    );
+
+    if (sameFacility) {
+      alert("Cannot reserve. (Reservation for same facility)");
+      return
+    }
+
+    if (sameDate) {
+      alert("Cannot reserve. (Reservation for same date)");
+      return
+    }
+
     reservations.push(reservation);
     localStorage.setItem('reservations', JSON.stringify(reservations));
 

@@ -46,6 +46,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f3ff;
+  padding-top: 60px;
 }
 
 
@@ -55,8 +56,14 @@ body {
   overflow: visible;
   height: 60px;
   padding: 0;
-  min-width: 1000px;
-  max-width: 100%;
+  
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  z-index: 10;
 }
 
 .navbar-link {
@@ -143,6 +150,7 @@ body {
 /* Home page */
 .home-page {
   text-align: left;
+  padding-top: 10px;
 }
 
 .numbered {
@@ -170,7 +178,7 @@ body {
 }
 
 .facility-item img {
-  width: 430px;
+  width: 100%;
   height: auto;
   border-radius: 10px;
 }
@@ -294,16 +302,30 @@ body {
 
 /* Style for 600px < screen <= 800px */
 @media (max-width: 800px) {
+  .facility-info p, h2 {
+      margin: 1px 0;
+  }
 
+  .facility-list {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    margin: 0 auto;
+  }
 }
 
 
 /* Style for screen <= 600px */
 @media (max-width: 600px) {
+  body {
+    padding-top: 0;
+  }
+
   .navbar {
       z-index: 10;
-      min-width: 10px;
-      max-width: 100%;
+      position: relative;
+      height: auto;
   }
 
   .hamburger-menu {
@@ -313,9 +335,14 @@ body {
     background-color: transparent;
   }
 
+  .dropbutton {
+    width: 100%;
+  }
+
   .navbar-center.show {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   #navbar-profile {
@@ -326,12 +353,11 @@ body {
       display: none;
   }
 
-  .facility-info p, h2 {
-      margin: 1px 0;
+  .navbar a {
+    margin: 0;
   }
 
   .facility-list {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
   }
 }

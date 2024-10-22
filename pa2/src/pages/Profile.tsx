@@ -1,22 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Profile() {
-  const [profileImage, setProfileImage] = useState("/src/images/user.png");
-  const [password, setPassword] = useState("******");
-  const [name, setName] = useState("John Doe");
-
-  // Change image handler
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      const newImageURL = URL.createObjectURL(event.target.files[0]);
-      setProfileImage(newImageURL);
-    }
-  };
-
-  // Change password handler
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  const [profileImage] = useState("/src/images/user.png");
+  const [password] = useState("******");
+  const [name] = useState("John Doe");
 
   return (
     <div className="container mt-4">

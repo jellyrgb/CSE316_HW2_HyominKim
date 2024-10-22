@@ -1,5 +1,5 @@
-import { facilities } from '../data/FacilityData';
-import FacilityItem from '../components/FacilityItem';
+import { facilities } from "../data/FacilityData";
+import FacilityItem from "../components/FacilityItem";
 
 function Facility() {
   return (
