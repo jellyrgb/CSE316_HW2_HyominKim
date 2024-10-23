@@ -45,8 +45,12 @@ function ReservationForm({ onSelectFacility }: ReservationFormProps) {
       return;
     }
 
+    // Remove time information from the dates (for same-day reservation)
+    const todayDateOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const selectedDateOnly = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
+
     // If the selected date is before today, show an alert
-    if (selectedDate < today) {
+    if (selectedDateOnly < todayDateOnly) {
       alert("Cannot reserve. (Date)");
       return;
     }
@@ -59,7 +63,7 @@ function ReservationForm({ onSelectFacility }: ReservationFormProps) {
 
     // Use the formula to get the day of the week
     const day = selectedDate.getDate();
-    let month = selectedDate.getMonth();
+    let month = selectedDate.getMonth() + 1;
     let year = selectedDate.getFullYear();
 
     if (month === 1 || month === 2) {
@@ -67,17 +71,16 @@ function ReservationForm({ onSelectFacility }: ReservationFormProps) {
       month += 12;
     }
 
-    const century = year % 100;
-    const yearOfCentury = Math.floor(year / 100);
+    const yearOfCentury = year % 100;
+    const century = Math.floor(year / 100);
 
     const dayOfWeek =
       (day +
-        (13 * (month + 1)) / 5 +
+        Math.floor((13 * (month + 1)) / 5) +
         yearOfCentury +
-        yearOfCentury / 4 +
-        century / 4 +
-        5 * century) %
-      7;
+        Math.floor(yearOfCentury / 4) +
+        Math.floor(century / 4) +
+        5 * century) % 7;
     const days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 
     // If the facility is not available on the selected day, show an alert
