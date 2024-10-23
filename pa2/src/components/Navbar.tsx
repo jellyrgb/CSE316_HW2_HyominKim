@@ -1,12 +1,14 @@
 // Hyomin Kim
 // hyomin.kim@stonybrook.edu
 
+// This component is renders Navigation bar.
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Toggle the menu, controlled by hamburger menu button
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };

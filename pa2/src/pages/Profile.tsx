@@ -1,6 +1,9 @@
 // Hyomin Kim
 // hyomin.kim@stonybrook.edu
 
+// This is the component for the user profile page.
+// It displays the user's information.
+// It also opens the modal for the user to change their profile image, password, and name.
 import { useState } from "react";
 
 function Profile() {
@@ -10,7 +13,6 @@ function Profile() {
 
   return (
     <div className="container mt-4">
-
       {/* User information section */}
       <main id="profile-page">
         <h1 id="profile-title">User Information</h1>
@@ -55,9 +57,9 @@ function Profile() {
             className="profile-button btn btn-outline-dark"
             data-bs-toggle="modal"
             data-bs-target="#name-modal"
-            >
-              Change Name
-            </button>
+          >
+            Change Name
+          </button>
         </div>
       </main>
 
@@ -167,7 +169,7 @@ function Profile() {
           </div>
         </div>
       </div>
-      
+
       {/* Change name modal */}
       <div
         id="name-modal"
@@ -197,8 +199,8 @@ function Profile() {
                 </label>
                 <input
                   className="form-control"
-                  type="password"
-                  id="newPassword"
+                  type="name"
+                  id="newName"
                   placeholder="Enter the new name"
                   aria-label="name input"
                 ></input>
@@ -212,18 +214,13 @@ function Profile() {
               >
                 Close
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                id="save-name"
-              >
+              <button type="button" className="btn btn-primary" id="save-name">
                 Save changes
               </button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

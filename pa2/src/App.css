@@ -6,43 +6,6 @@ hyomin.kim@stonybrook.edu */
   margin: 0 auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-
 
 /*** My Stylesheet ***/
 body {
@@ -58,7 +21,7 @@ body {
   overflow: visible;
   height: 60px;
   padding: 0;
-  
+
   position: fixed;
   width: 100%;
   left: 0;
@@ -190,7 +153,8 @@ body {
   flex-direction: column;
 }
 
-.facility-info p, h2{
+.facility-info p,
+h2 {
   margin: 2px 0;
   text-align: left;
 }
@@ -235,7 +199,7 @@ body {
 }
 
 .facility-days {
-    text-align: left;
+  text-align: left;
 }
 
 .form-group {
@@ -308,8 +272,10 @@ body {
 
 /* Style for 600px < screen <= 800px */
 @media (max-width: 800px) {
-  .facility-info p, h2 {
-      margin: 1px 0;
+
+  .facility-info p,
+  h2 {
+    margin: 1px 0;
   }
 
   .facility-list {
@@ -329,9 +295,9 @@ body {
   }
 
   .navbar {
-      z-index: 10;
-      position: relative;
-      height: auto;
+    z-index: 10;
+    position: relative;
+    height: auto;
   }
 
   .hamburger-menu {
@@ -352,11 +318,12 @@ body {
   }
 
   #navbar-profile {
-      display: none;
+    display: none;
   }
 
-  .navbar-center, .navbar-right {
-      display: none;
+  .navbar-center,
+  .navbar-right {
+    display: none;
   }
 
   .navbar a {
@@ -365,5 +332,19 @@ body {
 
   .facility-list {
     width: 80%;
+  }
+
+  .reserved-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reserved-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  #profile-page {
+    padding: 0 70px;
   }
 }

@@ -1,12 +1,15 @@
 // Hyomin Kim
 // hyomin.kim@stonybrook.edu
 
+// This is the component for the reservation list page.
+// It displays the reservations made by the user.
 import { useState, useEffect } from "react";
 import ReservedItem from "../components/ReservedItem";
 
 function Reservations() {
   const [reservations, setReservations] = useState<any[]>([]);
 
+  // Load reservations from local storage
   useEffect(() => {
     const savedReservations = JSON.parse(
       localStorage.getItem("reservations") || "[]"
@@ -14,6 +17,7 @@ function Reservations() {
     setReservations(savedReservations);
   }, []);
 
+  // Delete a reservation
   const handleDelete = (facilityName: string) => {
     const updatedReservations = reservations.filter(
       (reservation) => reservation.facility.name !== facilityName

@@ -1,6 +1,8 @@
 // Hyomin Kim
 // hyomin.kim@stonybrook.edu
 
+// This component is a child component of FacilityList.tsx.
+// It renders the information of a single facility.
 import { Facility } from "../data/FacilityData.ts";
 
 interface FacilityItemProps {
@@ -12,6 +14,7 @@ function FacilityItem({ facility }: FacilityItemProps) {
     <div className="facility-item">
       <img src={facility.image} alt={facility.name} />
       <div className="facility-info">
+
         <h2>{facility.name}</h2>
         <p>{facility.desc}</p>
 

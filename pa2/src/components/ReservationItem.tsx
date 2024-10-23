@@ -1,6 +1,8 @@
 // Hyomin Kim
 // hyomin.kim@stonybrook.edu
 
+// This component is a child component of ReservationForm.tsx.
+// It renders the facility information for making a reservation.
 import { Facility } from "../data/FacilityData.ts";
 
 interface FacilityItemProps {
@@ -10,11 +12,16 @@ interface FacilityItemProps {
 function ReservationItem({ facility }: FacilityItemProps) {
   return (
     <div className="reservation-item">
+      {/* Facility image */}
       <img src={facility.image} alt={facility.name} />
       <div className="facility-info">
+        {/* Facility name */}
         <h2>{facility.name}</h2>
+
+        {/* Facility description */}
         <p>{facility.desc}</p>
 
+        {/* Facility available days */}
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +37,7 @@ function ReservationItem({ facility }: FacilityItemProps) {
           <span className="facility-days">{facility.days.join(", ")}</span>
         </div>
 
+        {/* Facility location */}
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +59,7 @@ function ReservationItem({ facility }: FacilityItemProps) {
           <span>{facility.location}</span>
         </div>
 
+        {/* Facility participants */}
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,6 +74,7 @@ function ReservationItem({ facility }: FacilityItemProps) {
           <span>{facility.participants}</span>
         </div>
 
+        {/* Facility availability */}
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +85,7 @@ function ReservationItem({ facility }: FacilityItemProps) {
             viewBox="0 0 16 16"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"
             />
             <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
